@@ -8,4 +8,6 @@ I downloaded the image successfully using the Invoke-WebRequest -Uri "https://ka
 
 I could now open Hyper-V manager and followed the instructions of creating a VM with the new Kali-Linux image and I named my virtual machine "comp_security", and gave it the username and password that I use for logging in ada for pdx. I unchecked the box for Enable Secure Boot and I typed in osuosl.org for the mirror and KDE for the desktop environment.
 
-For the Enhanced session mode I ran the setup.sh that was provided and I made a new file called enhanced.sh with the script below the setup.sh which I ran as root, rebooted, and re-ran to get it to work.
+For the Enhanced session mode I ran the setup.sh that was provided and I made a new file called enhanced.sh with the script below the setup.sh which I ran as root, rebooted, and re-ran again to finish installation. This took a few hours as I had to reinstall the VM multiple times due to errors with the installation. Here is the output of the ip a s command:
+
+![Screenshot:](image-1.png)
