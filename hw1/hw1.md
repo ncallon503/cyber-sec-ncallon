@@ -8,12 +8,24 @@ I downloaded the image successfully using the Invoke-WebRequest -Uri "https://ka
 
 I could now open Hyper-V manager and followed the instructions of creating a VM with the new Kali-Linux image and I named my virtual machine "comp_security", and gave it the username and password that I use for logging in ada for pdx. I unchecked the box for Enable Secure Boot and I typed in osuosl.org for the mirror and KDE for the desktop environment.
 
-For the Enhanced session mode I ran the setup.sh that was provided and I made a new file called enhanced.sh with the script below the setup.sh which I ran as root, rebooted, and re-ran again to finish installation. This took a few hours as I had to reinstall the VM multiple times due to errors with the installation. Here is the output of the ip a s command:
+For the Enhanced Session modre this took a few hours as I had to reinstall the VM multiple times due to errors with the installation. Here is the output of the ip a s command:
 
 ![Screenshot:](image-1.png)
 
-I used curl -LO https://raw.githubusercontent.com/dkmcgrath/courses/main/netsec/setup.sh and also the enhanced_session.sh (to be safe) and after waiting a long period of time it finished installing.
+I used curl -LO https://raw.githubusercontent.com/dkmcgrath/courses/main/netsec/setup.sh and also the enhanced_session.sh and after waiting a long period of time it finished installing, here is the output for both setup.sh and enhanced_session.sh:
 
 ![Screenshot 1 for setup.sh](image.png)
 
 ![Screenshot 2 for setup.sh](image-2.png)
+
+![Screenshot for enhanced_session.sh](image-3.png)
+
+Completion of the tryhackme course:
+
+![tryhackme](image-4.png)
+
+![tryhackme 2](image-5.png)
+
+Odin ID: 945912805
+PSU ID: ncallon
+PSU email: ncallon@pdx.edu
