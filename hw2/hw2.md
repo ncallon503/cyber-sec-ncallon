@@ -78,7 +78,7 @@ To get this to work, I started out by running "virtualenv" in the ~/ directory, 
 
 # Script to activate virtual environment
 
-source ~/env/bin/activate"
+source ~/env/bin/activate
 ```
 
 ![activate](image-10.png)
