@@ -137,3 +137,17 @@ hash 9: e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme
 ```sh
 john --format=raw-sha1 --wordlist=rockyou.txt hash9.txt
 ```
+
+## Awk script, passphrases and cracking
+
+I used the command listed:
+
+```sh
+sudo awk -f sample.awk -v n=20 /usr/share/wordlists/rockyou.txt > rockyou20.txt
+```
+
+With sudo permissions to create rockyou20.txt file with 20 entries.
+
+![awk 1](image-11.png)
+
+![awk 2](image-12.png)
