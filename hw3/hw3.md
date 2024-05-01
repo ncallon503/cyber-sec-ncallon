@@ -151,3 +151,39 @@ With sudo permissions to create rockyou20.txt file with 20 entries.
 ![awk 1](image-11.png)
 
 ![awk 2](image-12.png)
+
+I then used the command:
+
+```sh
+sudo awk -f sample.awk -v n=3 rockyou20.txt > 3lines.txt
+```
+
+to generate a 3lines.txt file with these contents:
+
+![awk 3](image-13.png)
+
+Formatted the newlines into spaces:
+
+![awk 4](image-14.png)
+
+I then generated a key using these 3 words as the passphrase:
+
+```sh
+ssh-keygen -t ed25519
+```
+
+```sh
+troyangel1 jaw3594773 0853139926
+```
+
+![awk 5](image-16.png)
+
+I cd'ed to ~/.ssh and ran the command:
+
+```sh
+python3 /usr/share/john/ssh2john.py id_ed25519
+```
+
+to convert it into a format john can understand.
+
+![awk 6](image-17.png)
