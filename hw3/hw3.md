@@ -201,3 +201,25 @@ The 2combine.txt is then reused on rockyou20.txt to make the combinations now 3 
 ```sh
 hashcat --stdout -a 1 2combine.txt rockyou20.txt > 3combine.txt
 ```
+
+I then used the command:
+
+```sh
+john --wordlist=3combine.txt --format=ssh understandable.txt
+```
+
+![awk 8](image-19.png)
+
+And John the Ripper successfully cracked my password, troyangel1jaw35947730853139926.
+
+## Using john combined with awk piping instead of hashcat
+
+The only way I found out how to do it all in one line, with no extra files, was by using a nested triple for loop in a small awk script on the command line which you can pipe into the john command with the --stdin option on the text file to accomplish this:
+
+```sh
+sudo awk '{words[NR]=$0} END {for(i=1; i<=NR; i++) for(j=1; j<=NR; j++) for(k=1; k<=NR; k++) print words[i], words[j], words[k]}' rockyou20.txt | john --stdin --format=SSH understandable.txt
+```
+
+However it is so time intensive that it is not realistic to choose in my opinion.
+
+![awk 9](image-20.png)
