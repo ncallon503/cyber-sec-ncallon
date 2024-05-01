@@ -162,7 +162,7 @@ to generate a 3lines.txt file with these contents:
 
 ![awk 3](image-13.png)
 
-Formatted the newlines into spaces:
+Formatted them together:
 
 ![awk 4](image-14.png)
 
@@ -173,7 +173,7 @@ ssh-keygen -t ed25519
 ```
 
 ```sh
-troyangel1 jaw3594773 0853139926
+troyangel1jaw35947730853139926
 ```
 
 ![awk 5](image-16.png)
@@ -187,3 +187,17 @@ python3 /usr/share/john/ssh2john.py id_ed25519
 to convert it into a format john can understand.
 
 ![awk 6](image-17.png)
+
+The next part has two steps, I use the hashcat's "combination" attack mode on rockyou20.txt \* rockyou20.txt along with --stdout piped into a file called 2combine.txt:
+
+```sh
+hashcat --stdout -a 1 rockyou20.txt rockyou20.txt > 2combine.txt
+```
+
+![awk 7](image-18.png)
+
+The 2combine.txt is then reused on rockyou20.txt to make the combinations now 3 words, creating every possible combination:
+
+```sh
+hashcat --stdout -a 1 2combine.txt rockyou20.txt > 3combine.txt
+```
