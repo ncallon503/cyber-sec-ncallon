@@ -7,3 +7,7 @@
 ## Room 2 completion:
 
 ![image 2](image-1.png)
+
+## Room 3 completion:
+
+![image 3](image-2.png)
