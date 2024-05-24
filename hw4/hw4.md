@@ -11,3 +11,7 @@
 ## Room 3 completion:
 
 ![image 3](image-2.png)
+
+## Room 4 completion:
+
+![image 4](image-3.png)
