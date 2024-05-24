@@ -26,6 +26,16 @@ sudo tcpdump -i eth0 port 53 -v
 
 ![image 5](image-4.png)
 
+![image 6](image-7.png)
+
 2. Perform a tcpdump capture where you capture TCP packets that are destined for either port 443 or 8080, and originate from your computer.
+
+```
+sudo tcpdump -i eth0 'tcp and (dst port 443 or dst port 8080) and src host 172.25.255.251' -v
+```
+
+![image 7](image-5.png)
+
+![image 8](image-6.png)
 
 3. Perform a tcpdump capture where traffic is either UDP or TCP, is inbound to your computer, and destined for a port between 20000 and 35000.
