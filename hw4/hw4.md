@@ -15,3 +15,13 @@
 ## Room 4 completion:
 
 ![image 4](image-3.png)
+
+## 5. tcpdump exercises
+
+1.
+
+```
+sudo tcpdump -i eth0 port 53 -v
+```
+
+![image 5](image-4.png)
