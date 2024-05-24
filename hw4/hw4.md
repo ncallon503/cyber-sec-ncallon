@@ -39,3 +39,11 @@ sudo tcpdump -i eth0 'tcp and (dst port 443 or dst port 8080) and src host 172.2
 ![image 8](image-6.png)
 
 3. Perform a tcpdump capture where traffic is either UDP or TCP, is inbound to your computer, and destined for a port between 20000 and 35000.
+
+```
+sudo tcpdump -i eth0 '(tcp or udp) and dst portrange 20000-35000 and dst host 172.25.255.251' -v
+```
+
+![image 9](image-8.png)
+
+![image 10](image-9.png)
