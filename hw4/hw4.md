@@ -60,6 +60,24 @@ For R.csv, due to the UDP being higher than TCP but both still high relative to 
 
 ![image 12](image-12.png)
 
+4. Adding --countip option to script:
+
+![image 13](image-13.png)
+
+![image 14](image-14.png)
+
+5. With R.csv, the results indicate lots of repeated use from some IP addresses reaching the tens of thousands, so I think it matches an ISP network.
+
+![image 15](image-15.png)
+
+![image 16](image-18.png)
+
+With O.csv, there are lots of small amounts of packet usage cases from thousands and thousands of different IP addresses, so I think this reaffirms it might be a data center where people receive and input data from many different computers and only when needed.
+
+![image 16](image-16.png)
+
+![image 17](image-17.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
