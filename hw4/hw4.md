@@ -78,6 +78,10 @@ With O.csv, there are lots of small amounts of packet usage cases from thousands
 
 ![image 17](image-17.png)
 
+6. It seems that for R.csv, network 10.5.63.0 dominates the network, and as well as 234.142.142.
+
+For O.csv, it seems 207.182 has lots of packets, as well as 199.249.
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
