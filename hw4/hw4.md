@@ -48,6 +48,18 @@ sudo tcpdump -i eth0 '(tcp or udp) and dst portrange 20000-35000 and dst host 17
 
 ![image 10](image-9.png)
 
+## 6. Network traffic scripts
+
+1/2. Modifying script to detect ports 1-1024 and count TCP and UDP:
+
+![image 11](image-11.png)
+
+3. For O.csv, due to the high number of TCP packets, I think it is a data center network.
+
+For R.csv, due to the UDP being higher than TCP but both still high relative to eachother, I think it is most likely an ISP network.
+
+![image 12](image-12.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
