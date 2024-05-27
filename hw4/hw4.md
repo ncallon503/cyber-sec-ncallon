@@ -104,7 +104,7 @@ OSPF (89) appears 48 times in O.csv, and again, not at all in R.csv.
 
 8. 192.245 also dominates the network in the packet list.
 
-9.
+9. Due to data centers usually using OSPF a lot, and there only being 48 packets in O.csv, I'm not sure if I still think it's a data center. R.csv uses it 0 times, but ISPs dont use OSPF nearly as much as data centers, so I still think R.csv is an ISP network.
 
 Odin ID: 945912805
 PSU ID: ncallon
