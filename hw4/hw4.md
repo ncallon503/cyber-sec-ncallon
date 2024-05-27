@@ -106,6 +106,127 @@ OSPF (89) appears 48 times in O.csv, and again, not at all in R.csv.
 
 9. Due to data centers usually using OSPF a lot, and there only being 48 packets in O.csv, I'm not sure if I still think it's a data center. R.csv uses it 0 times, but ISPs dont use OSPF nearly as much as data centers, so I still think R.csv is an ISP network.
 
+## Adding -connto option to script and sorting
+
+After modifying script and adding connto option, making the most popular servers cluster at the end, with O.csv and R.csv respectively:
+
+![image 24](image-25.png)
+
+![image 25](image-26.png)
+
+Final script:
+
+```
+from CSVPacket import Packet, CSVPackets
+import sys
+from collections import defaultdict
+
+IPProtos = [0 for x in range(256)]
+numBytes = 0
+numPackets = 0
+
+# Counters for TCP and UDP ports
+tcpPorts = [0 for x in range(1025)]
+udpPorts = [0 for x in range(1025)]
+
+# Counter for IP addresses
+ipCounter = defaultdict(int)
+
+# Creating dictionary using lambda with an int
+conn_dic = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+
+# Check for the '-stats' and '--countip' flags, and --protocol as well
+stats = '-stats' in sys.argv
+count_ip = '--countip' in sys.argv
+connto = '--connto' in sys.argv
+
+filter = None
+
+if '--protocol' in sys.argv:
+    protocol_index = sys.argv.index('--protocol')
+    if protocol_index + 1 < len(sys.argv):
+        filter = int(sys.argv[protocol_index + 1])
+
+csvfile = open(sys.argv[1], 'r')
+
+for pkt in CSVPackets(csvfile):
+    numBytes += pkt.length
+    numPackets += 1
+    proto = pkt.proto & 0xff
+    IPProtos[proto] += 1
+
+    if pkt.proto == 6 or pkt.proto == 80:  # TCP
+        tcpPorts[pkt.proto] += 1
+    elif pkt.proto == 17 or pkt.proto == 53:  # UDP
+        udpPorts[pkt.proto] += 1
+
+    # Count IP addresses with protocol now
+    if count_ip and (filter is None or pkt.proto == filter):
+        if hasattr(pkt, 'ipsrc'):
+            ipCounter[pkt.ipsrc] += 1
+        if hasattr(pkt, 'ipdst'):
+            ipCounter[pkt.ipdst] += 1
+
+    if connto:
+        if hasattr(pkt, 'ipsrc') and hasattr(pkt, 'ipdst'):
+            if pkt.proto == 6 and hasattr(pkt, 'tcpdport'):
+                proto_str = 'tcp'
+                port = pkt.tcpdport
+            elif pkt.proto == 17 and hasattr(pkt, 'udpdport'):
+                proto_str = 'udp'
+                port = pkt.udpdport
+            else:
+                proto_str = None
+                port = None
+
+            if proto_str and port <= 1024:
+                conn_dic[pkt.ipdst][pkt.ipsrc][(proto_str, port)] += 1
+
+if stats:
+    print("numPackets:%u numBytes:%u" % (numPackets, numBytes))
+    for i in range(256):
+        if IPProtos[i] != 0:
+            print("%3u: %9u" % (i, IPProtos[i]))
+    print("\nTCP Ports:")
+    for i in range(1025):
+        if tcpPorts[i] != 0:
+            print("Port %d: %u packets" % (i, tcpPorts[i]))
+    print("\nUDP Ports:")
+    for i in range(1025):
+        if udpPorts[i] != 0:
+            print("Port %d: %u packets" % (i, udpPorts[i]))
+
+if count_ip:
+    sorted_ips = sorted(ipCounter.items(), key=lambda item: item[1], reverse=True)
+    print("\nIP Address Usage Counts:")
+    for ip, count in sorted_ips:
+        print("%s: %d packets" % (ip, count))
+
+if connto:
+    # Generate summary output for conn_dic
+    summary = []
+    for ipdst, src_dict in conn_dic.items():
+        distinct_ipsrc = len(src_dict)
+        ports = defaultdict(int)
+        for ipsrc, port_dict in src_dict.items():
+            for (proto, port), count in port_dict.items():
+                ports[(proto, port)] += 1
+        port_list = ', '.join([f"{proto}/{port}" for (proto, port) in sorted(ports.keys())])
+        summary.append((distinct_ipsrc, ipdst, port_list))
+
+    # Sort by # of IPs
+    summary.sort(reverse=False)
+
+    print("\nConnection Summary:")
+    for distinct_ipsrc, ipdst, port_list in summary:
+        print(f"ipdst {ipdst} has {distinct_ipsrc} distinct ipsrc on ports: {port_list}")
+
+
+if not stats and not count_ip and not connto:
+    sys.exit(0)
+
+```
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
