@@ -82,6 +82,30 @@ With O.csv, there are lots of small amounts of packet usage cases from thousands
 
 For O.csv, it seems 207.182 has lots of packets, as well as 199.249.
 
+7. Modifying script to use --protocol along with integer after it to filter:
+
+![image 18](image-19.png)
+
+GRE (47) appears none at all in R.csv, but 5,252 times total in O.csv.
+
+![image 19](image-20.png)
+
+IPSEC (50 and 51) appear 2,968 in O.csv, and none at all again in R.csv.
+
+![image 20](image-22.png)
+
+![image 21](image-21.png)
+
+OSPF (89) appears 48 times in O.csv, and again, not at all in R.csv.
+
+![image 22](image-24.png)
+
+![image 23](image-23.png)
+
+8. 192.245 also dominates the network in the packet list.
+
+9.
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
