@@ -218,19 +218,29 @@ So to sort the values of the nodes from highest to lowest:
 We have:
 
 0x0fd - node1
+
 0x2d5 - node2
+
 0x12d - node3
+
 0x3e5 - node4
+
 0x0d4 - node5
+
 0x1b0 - node6
 
 We want to sort these from greatest to lowest, so we get:
 
 0x3e5 - node4
+
 0x2d5 - node2
+
 0x1b0 - node6
+
 0x12d - node3
+
 0x0fd - node1
+
 0x0d4 - node5
 
 So the combination should be 4 2 6 3 1 5.
