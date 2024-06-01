@@ -56,9 +56,61 @@ I see two cmps, and I know that 0x1 is 1 in decimal so that the first input shou
 
 ![image 14](image-13.png)
 
-I notice 0x6 for eax, which is 6 in decimal.
+I look at the first compare (that's not the obvious 0x1) using the "until \*0x08048b7e" command at the address and I use "i r" to see eax is 0x2, or 2 in decimal.
 
 ![image 15](image-14.png)
+
+I use the same until agin, and now I see 0x6, or 6. Now I am trying "1 2 6 4 5 6".
+
+![image 16](image-15.png)
+
+I repeat and I see 0x18 (24), and add this so I now I have "1 2 6 24 5 6".
+
+![image 17](image-16.png)
+
+Now found 0x78, which is 120.
+
+![image 18](image-17.png)
+
+Found 0x2d0, which is 720.
+
+Now input "1 2 6 24 120 720", and wallah! It worked.
+
+![image 19](image-18.png)
+
+For phase_3, the first thing I notice is many different cmps followed by explode_bomb. I notice the first compare uses 0x80497de for eax.
+
+![image 20](image-19.png)
+
+It seems the input wants an integer, then a character, then an integer:
+
+![image 21](image-20.png)
+
+To get further into the code, I use the pattern "1 a 1", aka int char int, to see where it takes me now.
+
+I see that the first value after the lea assembly line to be compared is 0xd6 or 214.
+
+![image 22](image-21.png)
+
+I now try this with "1 a 214", as 1 worked for the first digit.
+
+I see that bl is the final compare, and I use "until \*0x8048c8f" to be able to see bl in the latest context, which despite giving weird errors shows me the value "0x62".
+
+![image 23](image-22.png)
+
+I know that this is a character, so if we use a ASCII table to see 0x62, and we go to the ASCII table and see which character this corresponds to:
+
+![image 24](image-23.png)
+
+So I am now trying "1 b 214":
+
+And it works!
+
+![image 25](image-24.png)
+
+I set a breakpoint at phase_4, and I start out by seeing the same sscan format checker I saw in phase_3:
+
+![image 26](image-25.png)
 
 Odin ID: 945912805
 PSU ID: ncallon
