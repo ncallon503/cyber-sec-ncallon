@@ -211,7 +211,7 @@ We see it says "node1, node2, node3" etc. and the second column corresponds with
 
 ![image 49](image-52.png)
 
-The "Jump if greater or equal" to continue the loop is comparing if edx ($esi + 0x8) (the node ahead in the list) is smaller than eax ($esi), or it explodes. So the nodes have to be ordered from greatest to lowest in order for the jump to keep succeeding until on <+234> it will finally escape the outermost loop and the bomb will be defused.
+The "Jump if greater or equal" to continue the loop is comparing if edx \($esi + 0x8\) \(the node ahead in the list\) is smaller than eax \($esi\), or it explodes. So the nodes have to be ordered from greatest to lowest in order for the jump to keep succeeding until on <+234> it will finally escape the outermost loop and the bomb will be defused.
 
 So to sort the values of the nodes from highest to lowest:
 
