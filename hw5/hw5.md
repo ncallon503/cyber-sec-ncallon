@@ -140,6 +140,73 @@ F9 (34) + F8 (21) = 55
 
 And it works!
 
+For phase_5 I start out with the test input "test test 123" just to proceed, and set a breakpoint and disassemble. The first thing you can notice is the "string_length", followed by comparing eax to 0x6 or 6, which if comparison is failed then explode_bomb is called. I'm assuming this means that the string_length should be 6 characters for eax.
+
+![image 33](image-33.png)
+
+Just like in some previous phases, you can tell a loop is occuring by a single increment on edx and then it being compared with 0x5. This means that when edx reaches 5 it will stop looping, so it is a loop from 0-5 or 6 loops.
+
+![image 34](image-34.png)
+
+I assume the program is going to crash before I get further if I don't input 6 characters so I do that with "abcdef" before I inspect the assembly code before the "strings_not_equal".
+
+![image 35](image-35.png)
+
+I use an until to view eax at the latest stage before strings_not_equal.
+
+![image 36](image-36.png)
+
+eax has an interesting value of "srveaw", which it transformed abcdef into. I see the goal is to transform this into "giants", so we must find out what to type in to make this cypher transform our string into "giants".
+
+![image 37](image-38.png)
+
+When I look at $esi I see an array which I assume is used for the cypher:
+
+![image 38](image-39.png)
+
+Going back to the code, I see that the only operation in the loop is using AND with the array elements:
+
+![image 39](image-40.png)
+
+When you use this with each element in the array, you will find that one of the possible answers is opekmq:
+
+![image 40](image-41.png)
+
+![image 41](image-42.png)
+
+Now setting breakpoint for final phase_6 and disassembling:
+
+I first notice a combination of different things I learned from the earlier phases. I see read_six_numbers, knowing that this must be 6 integers. I also see many different "inc"s, indicating loops, but we need to find out what each of them do. There is also a "dec" this time.
+
+![image 42](image-43.png)
+
+What I have noticed so far:
+
+![image 43](image-46.png)
+
+There are many comparisons and jumps to other loops with other comparisons if these compares return true.
+
+You can see the input (which we know is integers from read_six_numbers) is being compared right before a "Jump not equal" statement.
+So if any of these inputs are equal, that is the only way explode_bomb is called as you can see right here:
+
+![image 44](image-48.png)
+
+So we know that none of the integers should be matching, they all need to be unique numbers. For the eax compare, you can see that it "Jumps if below or equal" to 0x5 and will explode the bomb if this is not met, and because eax was just decremented (1 less than it just was), we know the integers must all be less than or equal to 6.
+
+With all these we know the numbers must be a combination of 1 2 3 4 5 and 6 distinctly, but we must find out what order.
+
+First, so we can get further in the code, let's start with 1 2 3 4 5 6 as our test input to get further without exploding.
+
+This is far as we get before the explosion, so let's look at the code right before that to figure out what it's doing. Already I see a loop of 5:
+
+![image 45](image-49.png)
+
+This is using esi, so let's inspect esi and see what it is storing:
+
+![image 47](image-50.png)
+
+We see a node that stores 3 addresses. Lets use pointer arithmetic by 8 (what phase_6 is incrementing it by earlier before putting into edx) to see what the next values look like.
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
