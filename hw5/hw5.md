@@ -207,6 +207,46 @@ This is using esi, so let's inspect esi and see what it is storing:
 
 We see a node that stores 3 addresses. Lets use pointer arithmetic by 8 (what phase_6 is incrementing it by earlier before putting into edx) to see what the next values look like.
 
+![image 48](image-51.png)
+
+We see it says "node1, node2, node3" etc. and the second column corresponds with the node number. The first column looks like it represents the value of a node in a linked list and that the third column is the pointer to the next node.
+
+![image 49](image-52.png)
+
+The "Jump if greater or equal" to continue the loop is comparing if edx ($esi + 0x8) (the node ahead in the list) is smaller than eax ($esi), or it explodes. So the nodes have to be ordered from greatest to lowest in order for the jump to keep succeeding until on <+234> it will finally escape the outermost loop and the bomb will be defused.
+
+So to sort the values of the nodes from highest to lowest:
+
+We have:
+
+0x0fd - node1
+0x2d5 - node2
+0x12d - node3
+0x3e5 - node4
+0x0d4 - node5
+0x1b0 - node6
+
+We want to sort these from greatest to lowest, so we get:
+
+0x3e5 - node4
+0x2d5 - node2
+0x1b0 - node6
+0x12d - node3
+0x0fd - node1
+0x0d4 - node5
+
+So the combination should be 4 2 6 3 1 5.
+
+Let's see if this works:
+
+Making sure nodes are in order:
+
+![image 50](image-53.png)
+
+Success!!!!!
+
+![image 51](image-54.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
