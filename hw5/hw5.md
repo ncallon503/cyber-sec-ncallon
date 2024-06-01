@@ -34,6 +34,14 @@ Attempting different interesting strings I found in the string.txt, but not work
 
 ![image 9](image-8.png)
 
+Think I finally found a clue! About to test it:
+
+![image 10](image-9.png)
+
+Worked!! Phase 1 done.
+
+![image 11](image-10.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
