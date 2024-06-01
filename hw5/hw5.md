@@ -30,6 +30,10 @@ Found the text when phases are defused, including a secret stage:
 
 ![image 8](image-7.png)
 
+Attempting different interesting strings I found in the string.txt, but not working:
+
+![image 9](image-8.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
