@@ -52,9 +52,13 @@ With read_six_numbers, I'm testing first with "1 2 3 4 5 6" just to see what the
 
 ![image 13](image-12.png)
 
-I see two cmps, and I know that 0x1 is 1 in decimal so that the first input should be 1. The second one seems to use eax which is changing in a loop I assume, so we will find out what it is for each iteration.
+I see two cmps, and I know that 0x1 is 1 in decimal so that the first input should be 1. The second one seems to use esi+ebx\*4 and eax which are changing in a loop I assume, so we will find out what it is for each iteration.
 
 ![image 14](image-13.png)
+
+I notice 0x6 for eax, which is 6 in decimal.
+
+![image 15](image-14.png)
 
 Odin ID: 945912805
 PSU ID: ncallon
