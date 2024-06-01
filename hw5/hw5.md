@@ -48,6 +48,14 @@ I notice a read_six_numbers function and explode_bomb functions for phase_2.
 
 ![image 12](image-11.png)
 
+With read_six_numbers, I'm testing first with "1 2 3 4 5 6" just to see what the assembly will do with the numbers I put, and so I can check the registers.
+
+![image 13](image-12.png)
+
+I see two cmps, and I know that 0x1 is 1 in decimal so that the first input should be 1. The second one seems to use eax which is changing in a loop I assume, so we will find out what it is for each iteration.
+
+![image 14](image-13.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
