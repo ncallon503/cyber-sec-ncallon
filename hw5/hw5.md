@@ -36,13 +36,11 @@ Attempting different interesting strings I found in the string.txt, but not work
 
 Think I finally found a clue! About to test it:
 
-![image 10](image-9.png)
+![image 11](image-10.png)
 
 Worked!! Phase 1 done.
 
 "Public speaking is very easy."
-
-![image 11](image-10.png)
 
 I notice a read_six_numbers function and explode_bomb functions for phase_2.
 
