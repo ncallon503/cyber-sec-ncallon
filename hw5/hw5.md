@@ -112,6 +112,34 @@ I set a breakpoint at phase_4, and I start out by seeing the same sscan format c
 
 ![image 26](image-25.png)
 
+We can see it wants an integer:
+
+![image 27](image-26.png)
+
+Something new I haven't seen is this function called "func4". Right after, it compares our eax to 0x37 with is 55 in decimal. I'm assuming that whatever integer we input, must be turnt into 55 by func4().
+
+![image 28](image-27.png)
+
+I do a disassembly dump of func4 to see exactly what it is doing. I start out by noticing that it is a recursive function, calling itself with a base case of 1, setting eax to 1 to reach this base case if the code has the wrong input:
+
+![image 29](image-28.png)
+
+I look at the two recursive calls and figure out that this represents the Fibonacci sequence, and I explain why this is the case in the screenshot:
+
+![image 30](image-29.png)
+
+We can see that the nth number for 55 is 10, where F10 is 55:
+
+![image 31](image-31.png)
+
+So if we plug in the previous number, which would be the 9th on the Fibonacci list, and would add F8 to combine to make 55, then this should plug in to reach 55 with the Fibonacci formula:
+
+F9 (34) + F8 (21) = 55
+
+![image 32](image-32.png)
+
+And it works!
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
