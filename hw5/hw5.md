@@ -40,7 +40,13 @@ Think I finally found a clue! About to test it:
 
 Worked!! Phase 1 done.
 
+"Public speaking is very easy."
+
 ![image 11](image-10.png)
+
+I notice a read_six_numbers function and explode_bomb functions for phase_2.
+
+![image 12](image-11.png)
 
 Odin ID: 945912805
 PSU ID: ncallon
