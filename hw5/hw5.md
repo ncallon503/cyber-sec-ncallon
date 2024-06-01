@@ -24,6 +24,12 @@ strings:
 
 ![image 6](image-5.png)
 
+Found the text when phases are defused, including a secret stage:
+
+![image 7](image-6.png)
+
+![image 8](image-7.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
