@@ -259,6 +259,10 @@ Success!!!!!
 
 ![image 52](image-55.png)
 
+## Snort challenge room completion:
+
+![image 53](image-56.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
