@@ -58,7 +58,7 @@ I look at the first compare (that's not the obvious 0x1) using the "until \*0x08
 
 ![image 15](image-14.png)
 
-I use the same until agin, and now I see 0x6, or 6. Now I am trying "1 2 6 4 5 6".
+I use the same until again, and now I see 0x6, or 6. Now I am trying "1 2 6 4 5 6".
 
 ![image 16](image-15.png)
 
