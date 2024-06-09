@@ -301,6 +301,36 @@ Trying to fix but gvmd does not exist:
 
 ![image 62](image-65.png)
 
+Trying original config script:
+
+![image 63](image-66.png)
+
+Finally finished:
+
+![image 64](image-67.png)
+
+gvmd does still not exist. Attempting one more time:
+
+![image 65](image-68.png)
+
+![image 66](image-69.png)
+
+![image 67](image-70.png)
+
+Still doesn't work. Attempting to alter on postgres.
+
+![image 68](image-71.png)
+
+![image 69](image-72.png)
+
+Making sure postgres is running:
+
+![image 70](image-73.png)
+
+After 6 hours, still does not work...
+
+![image 71](image-74.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
