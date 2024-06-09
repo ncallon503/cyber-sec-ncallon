@@ -263,6 +263,44 @@ Success!!!!!
 
 ![image 53](image-56.png)
 
+## Testing semgrep on my final project for CS302, a game where you have to slay a dragon:
+
+After hours of debugging trying to install all 3 recommended SAST's, semgrep finally works:
+
+![image 54](image-57.png)
+
+![image 55](image-58.png)
+
+It seems that no issues were found with my code. After breaking it on purpose, I still had no errors despite running it on all files.
+
+## Testing
+
+Fixing installation:
+
+![image 56](image-59.png)
+
+Goes back to same fix command error:
+
+![image 57](image-60.png)
+
+After 40 minutes now saying type cert:
+
+![image 58](image-61.png)
+
+That finished:
+
+![image 59](image-62.png)
+
+![image 60](image-63.png)
+
+New error:
+
+![image 61](image-64.png)
+
+Trying to fix but gvmd does not exist:
+
+![image 62](image-65.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
