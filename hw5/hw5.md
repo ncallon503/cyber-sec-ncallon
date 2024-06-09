@@ -331,6 +331,14 @@ After 6 hours, still does not work...
 
 ![image 71](image-74.png)
 
+Final hailmary:
+
+![image 72](image-75.png)
+
+Just does not work. Tried my best though.
+
+![image 73](image-76.png)
+
 Odin ID: 945912805
 PSU ID: ncallon
 PSU email: ncallon@pdx.edu
