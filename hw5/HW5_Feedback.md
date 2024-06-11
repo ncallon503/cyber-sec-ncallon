@@ -2,28 +2,29 @@
 
 ### Student
 
-**ODIN: <FMI>**
+**ODIN: ncallon**
 
-## Grade (<FMI>/100)
+## Grade (100/100)
 
 #### The BOMB Reverse Engineering
-- [] Determined Input for Phase 1
-- [] Determined Input for Phase 2
-- [] Determined Input for Phase 3
-- [] Determined Input for Phase 4
-- [] Determined Input for Phase 5
-- [] Determined Input for Phase 6
+- [x] Determined Input for Phase 1
+- [x] Determined Input for Phase 2
+- [x] Determined Input for Phase 3
+- [x] Determined Input for Phase 4
+- [x] Determined Input for Phase 5
+- [x] Determined Input for Phase 6
 
 #### THM Rooms
-- [] Snort
-- [] Snort Challenges
+- [x] Snort
+- [x] Snort Challenges
 
 #### Task Three
-- [] Install one of the SAST tools on your VM and run it against a project of your choosing. Document your progress in your hw5.md file
+- [x] Install one of the SAST tools on your VM and run it against a project of your choosing. Document your progress in your hw5.md file
 
 #### Task Four
-- [] Install GVM on your VM and run it against a project of your choosing. Document your progress in your hw5.md file.
+- [x] Install GVM on your VM and run it against a project of your choosing. Document your progress in your hw5.md file.
 
 ## Comments
+Great work! Thank you for your thorough documentation.
 
-<FMI>
+DAST was a challenge for most to get to work. Full credit.
